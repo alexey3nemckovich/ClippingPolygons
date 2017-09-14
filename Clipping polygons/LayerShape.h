@@ -27,6 +27,9 @@ public:
 	virtual void OnSelect() override;
 
 public:
+	void RecalcPoints();
+
+public:
 	int GetLayer();
 	void SetLayer(int z);
 
@@ -38,7 +41,7 @@ public:
 	int GetLayer() const;
 
 protected:
-	virtual void RecalcPoints() = 0;
+	virtual void RecalcPointsImpl() = 0;
 
 protected:
 	void AddPointAbsolute(const CPoint&);

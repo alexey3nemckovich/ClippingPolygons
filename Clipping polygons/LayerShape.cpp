@@ -24,7 +24,7 @@ LayerShape::~LayerShape()
 
 void LayerShape::Resize(const CSize& sz)
 {
-	Shape::Resize(sz);
+	SelectableShape::Resize(sz);
 	RecalcPoints();
 }
 
@@ -105,6 +105,19 @@ void LayerShape::OnSelect()
 
 	int maxLayer = shapeManager->GetBoundaryShapeLayer();
 	SetLayer(maxLayer + 1);
+}
+
+
+void LayerShape::RecalcPoints()
+{
+	auto prevRot = _rotationAngle;
+	_rotationAngle = 0;
+	_countPoints = 0;
+	_pointsInfo.clear();
+
+	RecalcPointsImpl();
+
+	Rotate(prevRot);
 }
 
 

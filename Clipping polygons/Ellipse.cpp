@@ -33,13 +33,8 @@ bool EllipseShape::ContainesPoint(const CPoint& p) const
 }
 
 
-void EllipseShape::RecalcPoints()
+void EllipseShape::RecalcPointsImpl()
 {
-	auto prevRot = _rotationAngle;
-	_rotationAngle = 0;
-	_countPoints = 0;
-	_pointsInfo.clear();
-	
 	int _x = 0; // Компонента x
 	int _y = _b; // Компонента y
 	int a_sqr = _a * _a; // a^2, a - большая полуось
@@ -84,8 +79,6 @@ void EllipseShape::RecalcPoints()
 			_x++;
 		}
 	}
-
-	Rotate(prevRot);
 }
 
 

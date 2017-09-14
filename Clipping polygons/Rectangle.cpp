@@ -28,11 +28,8 @@ bool RectangleShape::ContainesPoint(const CPoint& p) const
 }
 
 
-void RectangleShape::RecalcPoints()
+void RectangleShape::RecalcPointsImpl()
 {
-	_countPoints = 0;
-	_pointsInfo.clear();
-
 	auto rect = GetRect();
 	int x = rect.left;
 	int y = rect.top;
@@ -70,6 +67,4 @@ void RectangleShape::RecalcPoints()
 		y -= 1;
 		point.y = y;
 	}
-
-	Rotate(_rotationAngle);
 }

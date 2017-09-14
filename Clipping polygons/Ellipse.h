@@ -14,7 +14,7 @@ public:
 	virtual void Resize(const CSize&) override;
 
 protected:
-	virtual void RecalcPoints() override;
+	virtual void RecalcPointsImpl() override;
 
 private:
 	int _a, _b;

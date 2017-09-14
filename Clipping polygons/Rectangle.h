@@ -13,5 +13,5 @@ public:
 	virtual bool ContainesPoint(const CPoint& point) const override;
 
 protected:
-	virtual void RecalcPoints() override;
+	virtual void RecalcPointsImpl() override;
 };
